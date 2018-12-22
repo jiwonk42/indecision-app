@@ -22,11 +22,22 @@ class Action extends React.Component {
     }
 }
 
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options component here
+            </div>
+        );
+    }
+}
+
 const template = (
     <div>
         <h1>Title</h1>
         <Header />
         <Action />
+        <Options />
     </div>
 );
 

@@ -32,12 +32,23 @@ class Options extends React.Component {
     }
 }
 
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                AddOption component here
+            </div>
+        );
+    }
+};
+
 const template = (
     <div>
         <h1>Title</h1>
         <Header />
         <Action />
         <Options />
+        <AddOption />
     </div>
 );
 

@@ -44,8 +44,15 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    handleRemoveAll() {
-        alert('handleRemoveAll');
+    // allows non-render methods to use props data
+    constructor(props) {
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+
+    handleRemoveAll(props) {
+        console.log(this.props.options);
+        //alert('handleRemoveAll');
     }
 
     render() {
@@ -73,7 +80,7 @@ class Option extends React.Component {
 class AddOption extends React.Component {
     handleAddOption(e) {
         e.preventDefault();
-        
+
         const option = e.target.elements.option.value.trim();
 
         if (option) {

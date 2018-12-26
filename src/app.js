@@ -4,9 +4,18 @@ import ReactDOM from 'react-dom';
 class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.state = { // keeps track of state and its change(s)
             options: [1, 2, 3]
         };
+    }
+
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                options: []
+            };
+        });
     }
 
     render() {
@@ -17,7 +26,10 @@ class IndecisionApp extends React.Component {
             <div>
                 <Header title={title} subtitle={subtitle} />
                 <Action hasOptions={this.state.options.length > 0} />
-                <Options options={this.state.options} />
+                <Options 
+                    options={this.state.options}
+                    handleDeleteOptions={this.handleDeleteOptions} 
+                />
                 <AddOption />
             </div>
         );
@@ -55,21 +67,11 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    // allows non-render methods to use props data
-    constructor(props) {
-        super(props);
-        this.handleRemoveAll = this.handleRemoveAll.bind(this);
-    }
-
-    handleRemoveAll(props) {
-        console.log(this.props.options);
-        //alert('handleRemoveAll');
-    }
 
     render() {
         return (
             <div>
-                <button onClick={this.handleRemoveAll}>Remove All</button>
+                <button onClick={this.props.handleDeleteOptions}>Remove All</button>
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option} />) // mapping through Option component; optionText is props that will be passed down to Option component
                 }

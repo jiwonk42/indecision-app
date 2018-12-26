@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class IndecisionApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { // keeps track of state and its change(s)
+            options: [1, 2, 3]
+        };
+    }
+
     render() {
         const title = 'Indecision App';
         const subtitle = 'Put your life in the hands of a computer';
-        const options = [1, 2, 3];
 
         return (
             <div>
                 <Header title={title} subtitle={subtitle} />
                 <Action />
-                <Options options={options} />
+                <Options options={this.state.options} />
                 <AddOption />
             </div>
         );

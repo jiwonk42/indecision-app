@@ -165,6 +165,11 @@ class AddOption extends React.Component {
         this.setState(() => ({
             error
         }));
+
+        // wipes input data if valid data is entered
+        if (!error) {
+            e.target.elements.option.value = '';
+        }
     }
 
     render() {

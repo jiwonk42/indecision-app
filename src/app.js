@@ -19,9 +19,7 @@ class IndecisionApp extends React.Component {
 
     handleDeleteOption(optionToRemove) { // optionToRemove is an event object
         this.setState((prevState) => ({
-            options : prevState.options.filter((option) => {
-                return optionToRemove !== option; // removes individual option when clicked
-            })
+            options : prevState.options.filter((option) => optionToRemove !== option) // removes individual option when clicked}))
         }));
     }
 

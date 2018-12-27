@@ -16,8 +16,10 @@ class IndecisionApp extends React.Component {
     componentDidMount() {
         const json = localStorage.getItem('options');
         const options = JSON.parse(json); // objectify stringified options object for setting current state
-        // DOES NOT LOSE DATA even after the page is refreshed
-        this.setState(() => ({ options }));
+        // DOES NOT LOSE DATA even after the page refreshes
+        if (options) {
+            this.setState(() => ({ options }));
+        }     
     }
 
     componentDidUpdate(prevProps, prevState) {

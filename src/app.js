@@ -14,12 +14,17 @@ class IndecisionApp extends React.Component {
     }
 
     componentDidMount() {
-        const json = localStorage.getItem('options');
-        const options = JSON.parse(json); // objectify stringified options object for setting current state
-        // DOES NOT LOSE DATA even after the page refreshes
-        if (options) {
-            this.setState(() => ({ options }));
-        }     
+        // if json data is valid
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json); // objectify stringified options object for setting current state
+            // DOES NOT LOSE DATA even after the page refreshes
+            if (options) {
+                this.setState(() => ({ options }));
+            }     
+        } catch (e) { // if the json data is invalid
+            // does nothing 
+        } 
     }
 
     componentDidUpdate(prevProps, prevState) {

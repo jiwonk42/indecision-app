@@ -109,7 +109,11 @@ const Option = (props) => {
     return (
         <div>
             Option: {props.optionText}
-            <button onClick={props.handleDeleteOption}>remove</button>
+            <button 
+                onClick={(e) => {
+                    props.handleDeleteOption(props.optionText); // passes an option text instead of option event object
+                }}
+            >remove</button>
         </div>
     );
 };

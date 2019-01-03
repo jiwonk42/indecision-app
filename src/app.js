@@ -9,7 +9,7 @@ class IndecisionApp extends React.Component {
         this.handleAddOption = this.handleAddOption.bind(this);
         this.handleDeleteOption = this.handleDeleteOption.bind(this);
         this.state = { // keeps track of state and its change(s)
-            options: props.options
+            options: []
         };
     }
 
@@ -184,10 +184,6 @@ class AddOption extends React.Component {
             </div>
         );
     }
-};
-
-IndecisionApp.defaultProps = {
-    options: []
 };
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));

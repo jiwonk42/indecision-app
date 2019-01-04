@@ -5,6 +5,7 @@ const OptionModal = (props) => ( // using props to determine isOpen as true or f
     // Modal requires 2 props: isOpen, contentLabel
     <Modal
         isOpen={!!props.selectedOption}
+        onRequestClose={props.handleClearSelectedOption}
         contentLabel="Selected Option"
     >
         <h3>Selected Option</h3>

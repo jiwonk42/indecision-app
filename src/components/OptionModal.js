@@ -1,13 +1,14 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-const OptionModal = () => (
+const OptionModal = (props) => ( // using props to determine isOpen as true or false
     // Modal requires 2 props: isOpen, contentLabel
     <Modal
-        isOpen={true}
+        isOpen={!!props.selectedOption}
         contentLabel="Selected Option"
     >
         <h3>Selected Option</h3>
+        {props.selectedOption && <p>{props.selectedOption}</p>}
     </Modal>
 );
 

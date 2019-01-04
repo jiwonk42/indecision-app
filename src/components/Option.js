@@ -13,4 +13,4 @@ const Option = (props) => {
     );
 };
 
-export { Option as default };
+export default Option;

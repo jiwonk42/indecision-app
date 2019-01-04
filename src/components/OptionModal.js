@@ -9,6 +9,7 @@ const OptionModal = (props) => ( // using props to determine isOpen as true or f
     >
         <h3>Selected Option</h3>
         {props.selectedOption && <p>{props.selectedOption}</p>}
+        <button onClick={props.handleClearSelectedOption}>Okay</button>
     </Modal>
 );
 
